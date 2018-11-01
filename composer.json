@@ -1,0 +1,25 @@
+{
+    "name": "daozhu/rabbitmq-php",
+    "description": "RabbitMQ实战-php",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "daozhu",
+            "email": "597180041@qq.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.1",
+        "php-amqplib/php-amqplib": "^2.7",
+        "symfony/console": "^4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Daozhu\\RabbitMQ\\": "src/",
+            "Daozhu\\Demo\\RabbitMQ\\Console\\": "demo/console/",
+            "Daozhu\\RabbitMQ\\Console\\": "console/"
+        }
+    },
+    "version": "0.1"
+}
