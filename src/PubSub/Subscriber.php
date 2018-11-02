@@ -92,6 +92,7 @@ class Subscriber extends PubSub implements Subscribe
         $failedQueueName = $queue . "@failed";
         $this->channel->queue_declare($failedQueueName, false, true, false, false, false);
         $this->channel->queue_bind($failedQueueName, $this->exchangeFailedTopic(), $routingKey);
+        $this->channel->basic_qos(0, 1, false);
 
         return $failedQueueName;
     }
@@ -114,6 +115,7 @@ class Subscriber extends PubSub implements Subscribe
             ])
         );
         $this->channel->queue_bind($retryQueueName, $this->exchangeRetryTopic(), $routingKey);
+        $this->channel->basic_qos(0, 1, false);
 
         return $retryQueueName;
     }
@@ -129,6 +131,7 @@ class Subscriber extends PubSub implements Subscribe
     {
         $this->channel->queue_declare($queueName, false, true, false, false, false);
         $this->channel->queue_bind($queueName, $this->exchangeTopic(), $routingKey);
+        $this->channel->basic_qos(0, 1, false);
 
         return $queueName;
     }
